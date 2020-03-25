@@ -1,0 +1,21 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Submarca</th>
+      <th scope="col">Descripcion</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let auto of autos; index as i" (click)="mandarDataHijo(auto)">
+      <th scope="row">{{i + 1}}</th>
+      <td>
+        {{ auto.marca }}
+      </td>
+      <td>{{ auto.submarca  }}</td>
+      <td>{{ auto.descripcion }}</td>
+    </tr>
+  </tbody>
+</table>

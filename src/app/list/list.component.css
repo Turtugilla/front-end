@@ -1,0 +1,74 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list {
+  height: 120px;
+  width: 100%;
+  margin: 10px 200px 10px 200px;
+  min-width: 300px;
+  display: flex;
+  background-color: whitesmoke;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 10px;
+}
+
+.list .item {
+  text-transform: uppercase;
+  margin: 5px;
+}
+
+.list .item-marca,
+.list .item-descripcion {
+  font-size: 2em;
+  text-transform: capitalize;
+  margin-right: 20px;
+}
+
+@media (max-width: 700px) {
+
+  .list .item-marca,
+  .list .item-descripcion {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .list .item-marca,
+  .list .item-descripcion {
+    font-size: 1em;
+  }
+}
+
+.list .item-icon {
+  margin: 2px 5px 2px 40px;
+}
+
+.list .item-icon:hover {
+  cursor: pointer;
+}
+
+
+
+
+.list .item-descripcion {
+  margin-left: 20px;
+}
+
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-body .item {
+  border-bottom: 1px solid rgb(65, 65, 65, .1);
+}
+
+.modal-body .item span {
+  color: rgb(65, 65, 65);
+}

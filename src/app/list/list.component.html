@@ -1,0 +1,6 @@
+<ng-container *ngFor="let auto of autos">
+  <div class="list">
+    <div class="item item-icon fas fa-eye fa-3x" (click)="open(auto)"></div>
+    <div class="item item-descripcion">{{ auto.descripcion }}</div>
+  </div>
+</ng-container>

@@ -1,0 +1,14 @@
+<!-- ngbootstrap modal -->
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Detalles Automóvil</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Lo cerre')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="item"><span>Marca:</span> {{autoSeleccionado?.marca}}</div>
+  <div class="item"> <span>Submarca:</span> {{autoSeleccionado?.submarca}}</div>
+  <div class="item"> <span>Modelo:</span> {{autoSeleccionado?.modelo}}</div>
+  <div class="item"> <span>Descripción:</span> {{autoSeleccionado?.descripcion}}</div>
+  <div class="item"> <span>Fecha Registro:</span> {{autoSeleccionado?.fecha_registro | date}}</div>
+</div>

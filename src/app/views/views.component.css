@@ -20,6 +20,5 @@ nav a:hover {
 }
 
 nav a.active {
-  text-shadow: 0 0 10px #165781;
-  color: rgb(252, 104, 104);
+  background-color: rgb(223, 223, 223)
 }
