@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { ListComponent } from './list/list.component';
 import { TableComponent } from './table/table.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ModalDetallesAutoComponent } from './modal-detalles-auto/modal-detalles-auto.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { ModalDetallesAutoComponent } from './modal-detalles-auto/modal-detalles
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

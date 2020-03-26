@@ -9,13 +9,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let auto of autos; index as i" (click)="mandarDataHijo(auto)">
+    <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
       <th scope="row">{{i + 1}}</th>
       <td>
         {{ auto.marca }}
       </td>
       <td>{{ auto.submarca  }}</td>
       <td>{{ auto.descripcion }}</td>
+      <td><i class="fa fa-trash"></i></td>
+      <td><i class="fa fa-edit"></i></td>
     </tr>
   </tbody>
 </table>
+<ngb-pagination [collectionSize]="autos.length" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
