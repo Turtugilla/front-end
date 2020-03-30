@@ -10,6 +10,11 @@ import { ListComponent } from './list/list.component';
 import { TableComponent } from './table/table.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ModalDetallesAutoComponent } from './modal-detalles-auto/modal-detalles-auto.component';
+import { ModalAddUpdateComponent } from './modals/modal-add-update/modal-add-update.component';
+import { FormsModule } from '@angular/forms';
+import { ModalConfirmActionComponent } from './modals/modal-confirm-action/modal-confirm-action.component';
+import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
+
 
 @NgModule({
   declarations: [
@@ -19,16 +24,25 @@ import { ModalDetallesAutoComponent } from './modal-detalles-auto/modal-detalles
     ListComponent,
     TableComponent,
     InicioComponent,
-    ModalDetallesAutoComponent
+    ModalDetallesAutoComponent,
+    ModalAddUpdateComponent,
+    ModalConfirmActionComponent,
+    FormatoModelosPipe,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+<<<<<<< Updated upstream
 
+=======
+    HttpClientModule,
+    FormsModule
+>>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ModalDetallesAutoComponent]
+  entryComponents: [ModalDetallesAutoComponent, ModalAddUpdateComponent, ModalConfirmActionComponent]
 })
 export class AppModule { }

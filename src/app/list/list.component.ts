@@ -17,7 +17,13 @@ export class ListComponent implements OnInit {
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+<<<<<<< Updated upstream
     this.autos = AUTOMOVILES;
+=======
+    this.autoService.getAutos().subscribe((response) => {
+      this.autos = response.data;
+    })
+>>>>>>> Stashed changes
   }
 
 
