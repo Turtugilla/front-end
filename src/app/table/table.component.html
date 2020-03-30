@@ -10,28 +10,18 @@
     </tr>
   </thead>
   <tbody>
-<<<<<<< Updated upstream
-    <tr *ngFor="let auto of autos; index as i" (click)="mandarDataHijo(auto)">
-      <th scope="row">{{i + 1}}</th>
-=======
     <tr *ngFor="let auto of autos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
       <th scope="row">{{auto._id}}</th>
->>>>>>> Stashed changes
       <td>
         {{ auto.marca }}
       </td>
       <td>{{ auto.submarca  }}</td>
       <td>{{ auto.descripcion }}</td>
-<<<<<<< Updated upstream
-    </tr>
-  </tbody>
-</table>
-=======
       <td>{{auto.modelos | formatoModelos }}</td>
       <td class="icon-delete"><i class="fa fa-trash" (click)="openModalConfirmarEliminar(auto)"></i></td>
       <td class="icon-update" (click)="openModalEditar(auto)"><i class="fa fa-edit"></i></td>
     </tr>
   </tbody>
 </table>
+
 <ngb-pagination [collectionSize]="autos?.length" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
->>>>>>> Stashed changes

@@ -14,6 +14,7 @@ import { ModalAddUpdateComponent } from './modals/modal-add-update/modal-add-upd
 import { FormsModule } from '@angular/forms';
 import { ModalConfirmActionComponent } from './modals/modal-confirm-action/modal-confirm-action.component';
 import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -34,12 +35,8 @@ import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-<<<<<<< Updated upstream
-
-=======
     HttpClientModule,
     FormsModule
->>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent],

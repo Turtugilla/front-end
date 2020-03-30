@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Automovil } from '../models';
-<<<<<<< Updated upstream
-=======
 import { AutosService } from '../autos.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalAddUpdateComponent } from '../modals/modal-add-update/modal-add-update.component';
 import { ModalConfirmActionComponent } from '../modals/modal-confirm-action/modal-confirm-action.component';
->>>>>>> Stashed changes
-
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -16,16 +12,18 @@ import { ModalConfirmActionComponent } from '../modals/modal-confirm-action/moda
 export class TableComponent implements OnInit {
   autos: Automovil[];
   autoSeleccionado: Automovil;
-<<<<<<< Updated upstream
-  constructor() { }
-=======
+
   pageSize: number;
   page: number;
   constructor(private autosService: AutosService, private modalService: NgbModal) { }
->>>>>>> Stashed changes
+
 
   ngOnInit() {
-    this.autos = AUTOMOVILES;
+    this.pageSize = 10;
+    this.page = 1;
+    this.autosService.getAutos().subscribe((response) => {
+      this.autos = response.data;
+    })
   }
 
 
