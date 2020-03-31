@@ -12,19 +12,26 @@ import { ModalConfirmActionComponent } from '../modals/modal-confirm-action/moda
 export class TableComponent implements OnInit {
   autos: Automovil[];
   autoSeleccionado: Automovil;
-
   pageSize: number;
   page: number;
-  constructor(private autosService: AutosService, private modalService: NgbModal) { }
 
+  displayProgressBar: boolean;
+  constructor(private autosService: AutosService, private modalService: NgbModal) {
+  }
 
   ngOnInit() {
+    this.displayProgressBar = true;
     this.pageSize = 10;
-    this.page = 1;
+    this.page = +sessionStorage.getItem('currentPage');
     this.autosService.getAutos().subscribe((response) => {
-      this.autos = response.data;
+      setTimeout(() => {
+        this.displayProgressBar = false;
+        this.autos = response.data;
+      }, 1500)
+
     })
   }
+
 
 
   openModalEditar(auto: Automovil) {
@@ -34,7 +41,10 @@ export class TableComponent implements OnInit {
 
     modalRef.result.then(
       (auto) => {
-        this.autosService.updateAutos(auto).subscribe(response => console.log(response));
+        this.autosService.updateAutos(auto).subscribe(value => {
+          sessionStorage.setItem('currentPage', this.page.toString());
+          this.ngOnInit();
+        });
       },
       (reason) => {
         console.log(reason)
@@ -48,7 +58,10 @@ export class TableComponent implements OnInit {
     modalRef.componentInstance.accion = "Agregar";
     modalRef.result.then(
       (auto) => {
-        this.autosService.addAuto(auto).subscribe(response => console.log(response));
+        this.autosService.addAuto(auto).subscribe(response => {
+          sessionStorage.setItem('currentPage', this.page.toString());
+          this.ngOnInit();
+        });
       },
       (reason) => {
         console.log(reason)
@@ -59,11 +72,12 @@ export class TableComponent implements OnInit {
   openModalConfirmarEliminar(auto: Automovil) {
     const modalRef = this.modalService.open(ModalConfirmActionComponent, { centered: true })
     modalRef.componentInstance.auto = auto;
+    // Este método de result es la Promise 
     modalRef.result.then(
       (autoTemp) => {
         this.autosService.deleteAuto(autoTemp).subscribe(response => {
-          console.log("Respuesta cuando se termina de eliminar un auto")
-          console.log(response)
+          sessionStorage.setItem('currentPage', this.page.toString());
+          this.ngOnInit();
         })
       },
       (reason) => {
