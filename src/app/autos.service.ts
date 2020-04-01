@@ -9,21 +9,17 @@ import { MessagesService } from './messages.service';
   providedIn: 'root'
 })
 export class AutosService {
-  private autosURL = 'https://catalogo-autos.herokuapp.com//api/autos/';
+  private autosURL = 'https://catalogo-autos.herokuapp.com/api/autos/';
   private autosActionsURL = 'https://catalogo-autos.herokuapp.com/api/autos'
 
   constructor(private http: HttpClient, private messagesService: MessagesService) { }
 
   getAutos(): Observable<any> {
     return this.http.get<any>(this.autosURL).pipe(
-      tap(() => this.messagesService.add('Productos Obtenidos')),
+      tap({ complete: () => this.messagesService.add('Productos Obtenidos') }),
       catchError(this.handleError<any>('getAutos'))
     )
   }
-
-
-
-
 
 
   addAuto(auto: Automovil): Observable<any> {
