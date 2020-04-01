@@ -11,5 +11,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     sessionStorage.setItem('currentPage', '1');
+    console.log('Entre a AppComponent.ts')
   }
 }

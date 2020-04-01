@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +17,8 @@ import { ModalAddUpdateComponent } from './modals/modal-add-update/modal-add-upd
 import { FormsModule } from '@angular/forms';
 import { ModalConfirmActionComponent } from './modals/modal-confirm-action/modal-confirm-action.component';
 import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
-import { HttpClientModule } from '@angular/common/http';
+import { LogComponent } from './log/log.component';
+
 
 
 @NgModule({
@@ -29,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModalAddUpdateComponent,
     ModalConfirmActionComponent,
     FormatoModelosPipe,
+    LogComponent,
+
 
   ],
   imports: [
@@ -36,7 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

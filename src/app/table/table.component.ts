@@ -14,10 +14,12 @@ export class TableComponent implements OnInit {
   autoSeleccionado: Automovil;
   pageSize: number;
   page: number;
+  searchText;
 
   displayProgressBar: boolean;
   constructor(private autosService: AutosService, private modalService: NgbModal) {
   }
+
 
   ngOnInit() {
     this.displayProgressBar = true;
