@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalConfirmActionComponent } from './modals/modal-confirm-action/modal-confirm-action.component';
 import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { LogComponent } from './log/log.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     ModalAddUpdateComponent,
     ModalConfirmActionComponent,
     FormatoModelosPipe,
+    LogComponent,
 
   ],
   imports: [
