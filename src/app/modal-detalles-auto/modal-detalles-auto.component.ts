@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Automovil } from '../models';
 import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -7,11 +7,14 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
   templateUrl: './modal-detalles-auto.component.html',
   styleUrls: ['./modal-detalles-auto.component.css']
 })
-export class ModalDetallesAutoComponent {
+export class ModalDetallesAutoComponent implements OnInit {
 
   autoSeleccionado: Automovil;
 
   constructor(public activeModal: NgbActiveModal) { }
 
+  ngOnInit() {
+
+  }
 
 }

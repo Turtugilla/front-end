@@ -3,3 +3,16 @@
 table {
   font-family: 'Cantarell', sans-serif;
 }
+
+button {
+  margin: 20px;
+}
+
+
+.icon-delete:hover {
+  cursor: pointer;
+}
+
+.icon-update:hover {
+  cursor: pointer;
+}
