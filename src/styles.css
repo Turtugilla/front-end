@@ -6,3 +6,18 @@ html {
   margin: 0;
   font-family: 'Anton', sans-serif;
 }
+
+
+.page-link {
+  color: gray;
+}
+
+.page-link:hover {
+  color: white;
+  background-color: gray;
+}
+
+.page-item.active .page-link {
+  color: white;
+  background-color: gray;
+}
