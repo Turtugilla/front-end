@@ -17,6 +17,8 @@ export class ModalAddUpdateComponent implements OnInit {
   auto: Automovil = {} as Automovil;
   desde: number;
   hasta: number;
+  modelos: number[] = [this.desde, this.hasta];
+
 
   constructor(public activeModal: NgbActiveModal) {
   }
@@ -26,6 +28,9 @@ export class ModalAddUpdateComponent implements OnInit {
       let lengthModelos: number = this.auto.modelos.length;
       this.desde = this.auto.modelos[0];
       this.hasta = this.auto.modelos[lengthModelos - 1];
+    } else if (this.accion === 'Agregar') {
+      this.desde = 2000;
+      this.hasta = 2020;
     }
   }
 
@@ -47,8 +52,13 @@ export class ModalAddUpdateComponent implements OnInit {
       modelos.push(cont);
     }
     return modelos;
+
   }
-
-
-
 }
+
+
+
+
+
+
+

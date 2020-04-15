@@ -15,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 import { ModalConfirmActionComponent } from './modals/modal-confirm-action/modal-confirm-action.component';
 import { FormatoModelosPipe } from './pipes/formato-modelos.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { NombreProhibidoDirective } from './directives/nombre-prohibido.directive';
+import { RangoModelosDirective } from './directives/rango-modelos.directive';
+
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModalAddUpdateComponent,
     ModalConfirmActionComponent,
     FormatoModelosPipe,
-
+    NombreProhibidoDirective,
+    RangoModelosDirective
   ],
   imports: [
     BrowserModule,

@@ -6,17 +6,23 @@
 </div>
 <div class="modal-body">
 
-  <form #formAutos="ngForm" (ngSubmit)="onSubmit(formAutos)">
+  <form #formAutos="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="marca">Marca</label>
-      <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" [(ngModel)]="auto.marca"
-        name="marca" #marca="ngModel" required>
+      <input type="text" class="form-control" id="marca" placeholder="Agrega la marca" [(ngModel)]="auto.marca" required
+        name="marca" #marca="ngModel" appNombreProhibido="bob">
     </div>
 
-    <div [hidden]="marca.valid || marca.pristine" class="alert alert-danger">
-      Name is required
-    </div>
+    <div *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+      <div *ngIf="marca.errors.required" class="alert alert-danger">
+        La marca es requerida
+      </div>
 
+      <div *ngIf="marca.errors.forbiddenName" class="alert alert-danger">
+        El nombre de marca {{marca.errors.forbiddenName.value}} esta prohibido
+      </div>
+
+    </div>
 
 
     <div class="form-group">
@@ -30,9 +36,6 @@
       <input type="text" class="form-control" id="descripcion" placeholder="Agrega la descripcion"
         [(ngModel)]="auto.descripcion" name="descripcion">
     </div>
-
-
-
 
     <label>Modelos</label>
     <div class="form-row">
@@ -51,6 +54,33 @@
 
       </div>
     </div>
+
+    <label>Modelos</label>
+    <div class="form-row">
+      <div class="form-group col-md-3">
+        <label for="desde">desde</label>
+        <input type="range" min="2000" max="2020" class="form-control" id="desde" placeholder="desde"
+          [(ngModel)]="desde" name="desde">
+        <span>{{desde}}</span>
+      </div>
+
+      <div class="form-group col-md-3">
+        <label for="hasta">hasta</label>
+        <input type="range" min="2000" max="2020" class="form-control" id="hasta" placeholder="hasta"
+          [(ngModel)]="hasta" name="hasta" #modeloHasta="ngModel" [appRangoModelos]="[desde,hasta]">
+        <span>{{hasta}}</span>
+      </div>
+    </div>
+
+    <div *ngIf="modeloHasta.invalid && (modeloHasta.dirty || modeloHasta.touched)">
+
+      <div *ngIf="modeloHasta.errors.forbiddenModels" class="alert alert-danger">
+        El módelo de hasta debe ser mayor que el modelo desde
+      </div>
+    </div>
+
+
+
     <div class="modal-footer">
       <button type="submit" class="btn btn-outline-dark" [disabled]="!formAutos.form.valid">Guardar</button>
     </div>
