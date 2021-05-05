@@ -9,8 +9,8 @@ import { MessagesService } from './messages.service';
   providedIn: 'root'
 })
 export class AutosService {
-  private autosURL = 'https://catalogo-autos.herokuapp.com/api/autos/';
-  private autosActionsURL = 'https://catalogo-autos.herokuapp.com/api/autos'
+  private autosURL = 'https://catalogo-autos-nodejs.herokuapp.com/api/autos';
+  private autosActionsURL = 'https://catalogo-autos-nodejs.herokuapp.com/api/autos'
 
   constructor(private http: HttpClient, private messagesServices: MessagesService) { }
 
