@@ -34,6 +34,7 @@ export class AutosService {
 
 
   updateAutos(auto: Automovil): Observable<any> {
+    console.log(auto);
     return this.http.put<any>(`${this.autosActionsURL}/${auto._id}`, auto).pipe(
       catchError(this.handleError<any>('updateAutos')),
       tap((result) => {
